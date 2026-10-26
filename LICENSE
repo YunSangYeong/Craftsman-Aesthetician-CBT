@@ -24,8 +24,9 @@ Adaptation: Craftsman-Aesthetician-CBT contributors.
 Reference application: https://github.com/YunSangYeong/electrician-cbt
 Commit: b9a682ccff1b460334b78d5bfad9375b7ec4fbb6
 
-New original learning questions in src/data/questions.json and the manuscript
-in scripts/build-bank.py are provided under CC BY 4.0:
+New original learning questions in src/data/questions.json and question content
+in scripts/build-bank.py, scripts/bank_expansion.py, and scripts/manuscripts/
+are provided under CC BY 4.0 (generation/application code remains MIT):
 https://creativecommons.org/licenses/by/4.0/
 Attribute: Craftsman-Aesthetician-CBT contributors; link to this repository
 and indicate modifications. No electrician question data is included.

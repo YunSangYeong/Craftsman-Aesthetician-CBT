@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { describe, expect, it } from "vitest";
 import {
   answerExam,
@@ -20,19 +21,36 @@ import {
 } from "../src/model";
 const bank = BASE_BANK;
 describe("피부 문제은행의 등록 품질과 출처", () => {
-  it("100개 고유 개념형이며 1,000개 목표 대비 900개 미달", () => {
-    expect(bank).toHaveLength(100);
-    expect(new Set(bank.map(q => q.id)).size).toBe(100);
-    expect(new Set(bank.map(fingerprint)).size).toBe(100);
-    SUBJECTS.forEach(s => expect(bank.filter(q => q.subject === s)).toHaveLength(20));
+  it("1,000개 고유 문항: 개념 400 + 수치 변형 600, 과목별 200", () => {
+    expect(bank).toHaveLength(1000);
+    expect(new Set(bank.map(q => q.id)).size).toBe(1000);
+    expect(new Set(bank.map(fingerprint)).size).toBe(1000);
+    expect(new Set(bank.map(q => q.question.normalize("NFKC").replace(/\s+/g,""))).size).toBe(1000);
+    SUBJECTS.forEach(s => expect(bank.filter(q => q.subject === s)).toHaveLength(200));
     for (const q of bank) {
       expect(() => validateQuestion(q)).not.toThrow();
       expect(q.type).toBe("original");
       expect(q.year).toBeNull(); expect(q.session).toBeNull();
-      expect(q.family).toBeUndefined(); expect(q.calculation).toBeUndefined();
+      expect(q.verificationStatus).toBe("reviewed");
       expect(q.reviewNote).toContain("외부");
       expect(q.rights).toContain("CC BY 4.0");
       expect(q.explanation.length).toBeGreaterThan(30);
+    }
+  });
+});
+describe("은행 확대와 기존 기록 호환", () => {
+  it("기존 100개 문항의 ID·본문·보기·정답·해설·메타데이터를 보존한다", () => {
+    expect(createHash("sha256").update(JSON.stringify(bank.slice(0,100))).digest("hex")).toBe("ed3c2d7d49fd61f54a5e51edadce72a4f7a25ab3d589eba25731de31ca25b518");
+  });
+  it("개념 400개와 계산 10유형×60조건을 구분하고 동일 조건을 중복 등록하지 않는다", () => {
+    expect(bank.filter(q=>!q.calculation)).toHaveLength(400);
+    const calculated=bank.filter(q=>q.calculation);
+    expect(calculated).toHaveLength(600);
+    const families=new Set(calculated.map(q=>q.family)); expect(families.size).toBe(10);
+    for(const family of families) {
+      const items=calculated.filter(q=>q.family===family); expect(items).toHaveLength(60);
+      expect(new Set(items.map(q=>JSON.stringify(q.calculation!.values))).size).toBe(60);
+      expect(new Set(items.map(q=>q.calculation!.kind)).size).toBe(1);
     }
   });
 });
@@ -120,12 +138,12 @@ describe("랜덤 학습", () => {
   it("한 과목의 모든 문항을 순회하기 전에는 중복이 없다", () => {
     let p = startPractice(bank, "main", "피부미용학");
     const ids = new Set<string>();
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 200; i++) {
       expect(ids.has(p.currentId)).toBe(false);
       ids.add(p.currentId);
       p = nextPractice(p, bank);
     }
-    expect(ids.size).toBe(20);
+    expect(ids.size).toBe(200);
     expect(p.subject).toBe("피부미용학");
   });
   it("즉시 채점·연속 정답·통계를 저장하며 중복 채점을 방지한다", () => {

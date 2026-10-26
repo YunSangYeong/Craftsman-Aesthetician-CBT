@@ -31,6 +31,12 @@ export interface Question {
   };
 }
 export const BASE_BANK = questions as Question[];
+export const BASE_BANK_STATS = {
+  reviewed: BASE_BANK.filter(q => q.verificationStatus === "reviewed").length,
+  concepts: BASE_BANK.filter(q => !q.calculation).length,
+  numericVariants: BASE_BANK.filter(q => q.calculation).length,
+  numericFamilies: new Set(BASE_BANK.filter(q => q.calculation).map(q => q.family)).size,
+};
 export const TYPE_LABEL = {
   original: "자체 제작",
   past: "원문 기출",

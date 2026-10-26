@@ -42,6 +42,7 @@ import {
   PROFILE,
   answerExam,
   BASE_BANK,
+  BASE_BANK_STATS,
   checkPractice,
   createExam,
   emptyStore,
@@ -871,6 +872,7 @@ function App() {
                         .length
                     }
                   </p>
+                  <p>기본 구성: 개념형 {BASE_BANK_STATS.concepts} · 계산 조건 변형 {BASE_BANK_STATS.numericVariants} · 계산 유형 {BASE_BANK_STATS.numericFamilies}</p>
                 </div>
                 <button
                   className="text-button"
@@ -1781,7 +1783,11 @@ function BankManager({
           </strong>
           <br />
           원문 기출 0 · 복원문제 0. 공식 자료 접근 제한으로 기출 원문 및
-          출제기준 대조는 완료하지 못했습니다. 기본 문항은 AI 일반 지식으로 작성하여 문장·정답·보기의 내부 대조 검토만 수행했습니다. 외부 전문가 검수는 받지 않았으며 숫자 변형은 없습니다. 목표 1,000개 중 100개 등록, 900개 부족입니다. 시험 규칙과 5개 학습 영역은 공식 원문 대조 전 잠정 학습 설정입니다.
+          출제기준 대조는 완료하지 못했습니다. 기본 문항은 AI 일반 지식으로 작성하여 문장·정답·보기의 내부 대조 검토만 수행했습니다. 외부 전문가 검수는 받지 않았습니다. 기본 은행은 개념형 {BASE_BANK_STATS.concepts}개와
+          계산 조건 변형 {BASE_BANK_STATS.numericVariants}개({BASE_BANK_STATS.numericFamilies}유형)입니다.
+          숫자 변형은 별개의 기출이나 독립 개념으로 세지 않습니다.
+          목표 {PROFILE.bankTarget.toLocaleString()}개 중 내부 검토 등록 {BASE_BANK_STATS.reviewed.toLocaleString()}개,
+          부족 {Math.max(0, PROFILE.bankTarget - BASE_BANK_STATS.reviewed)}개입니다. 시험 규칙과 5개 학습 영역은 공식 원문 대조 전 잠정 학습 설정입니다.
         </div>
       </div>
       <div className="bank-tools panel">

@@ -23,6 +23,6 @@
 - 대상은 미용사(피부), 저장소는 YunSangYeong/Craftsman-Aesthetician-CBT이다.
 - 기준 스킬은 최신 main 76b990b8720adfa85c22a0a8f699b17094aa357b의 v1.4.0 전체 폴더이다. 앱 기준은 별도 고정 커밋이다.
 - 설정은 src/qualification.json, 자체 제작 원고는 scripts/build-bank.py, 검토 범위는 docs/question-review.md를 읽는다.
-- 현재 기본 등록 100개·목표 부족 900개·공식 대조 미완료를 숨기지 않는다. pending 문항을 학습 풀에 넣지 않는다.
+- 현재 기본 등록 1,000개(개념형 400·계산 조건 변형 600, 10유형)·목표 부족 0개다. 수치 변형을 독립 기출/개념으로 세지 않으며 공식 대조 미완료를 숨기지 않는다. pending 문항을 학습 풀에 넣지 않는다.
 - 현재 작업 체크아웃을 사용하며 사용자 요청 없이 Git worktree를 만들지 않는다.
 - 배포 첫 차단 뒤에는 이 요청에서 재시도하지 않는다. docs/validation.md의 사전 확인 결과를 먼저 확인한다.

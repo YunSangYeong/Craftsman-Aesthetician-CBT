@@ -113,6 +113,8 @@ for i, (topic, prompt, correct, d1, d2, d3, explanation) in enumerate(rows):
     shift=i%4
     choices=choices[shift:]+choices[:shift]
     questions.append(dict(id=f'SKIN-{i+1:04}', subject=subjects[i//20], topic=topic, question=prompt, choices=choices, answer=choices.index(correct)+1, explanation=explanation, difficulty='하', year=None, session=None, type='original', sourceUrl='https://github.com/YunSangYeong/Craftsman-Aesthetician-CBT/blob/feat/skin-cbt-standard-20261026/docs/question-review.md', verificationStatus='reviewed', reviewNote='AI 일반 지식으로 자체 작성 후 문장·정답·보기의 내부 대조 검토. 외부 자료 대조·전문가 검수·공식 출제기준 대조 미완료. 저장소 링크는 작성·검토 기록이며 외부 정답 증빙이 아님.', version='main', rights='자체 제작 학습 문항 · CC BY 4.0 · Craftsman-Aesthetician-CBT contributors'))
+from bank_expansion import expand_bank
+questions = expand_bank(questions)
 (root/'src/data/questions.json').write_text(json.dumps(questions,ensure_ascii=False,indent=2)+'\n')
 example=dict(questions[0],id='LOCAL-SKIN-EXAMPLE',question='[직접 작성할 질문]',verificationStatus='pending',reviewNote='등록 양식 예시. 출처·권리·정답을 확인한 후 로컬 승인.')
 (root/'public/templates/questions.json').write_text(json.dumps([example],ensure_ascii=False,indent=2)+'\n')
@@ -120,4 +122,4 @@ flat={**example}
 for j,c in enumerate(flat.pop('choices'),1): flat[f'choice{j}']=c
 with (root/'public/templates/questions.csv').open('w',newline='') as f:
     w=csv.DictWriter(f,fieldnames=list(flat),lineterminator="\n");w.writeheader();w.writerow(flat)
-print(f'Generated {len(questions)} original concept questions, 0 numeric variants')
+print(f'Generated {len(questions)} original questions: 400 concept, 600 numerical variants (10 families × 60)')
