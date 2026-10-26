@@ -1,0 +1,25 @@
+[
+  {
+    "id": "LOCAL-SKIN-EXAMPLE",
+    "subject": "피부미용학",
+    "topic": "고객상담",
+    "question": "[직접 작성할 질문]",
+    "choices": [
+      "알레르기와 현재 피부 상태",
+      "고객의 휴대전화 기종",
+      "고객의 신발 크기",
+      "고객의 선호 음악만"
+    ],
+    "answer": 1,
+    "explanation": "알레르기·민감 반응과 현재 피부 상태는 제품과 관리 방법의 안전한 선택에 직접 영향을 준다. 상담 내용은 필요한 범위에서 기록한다.",
+    "difficulty": "하",
+    "year": null,
+    "session": null,
+    "type": "original",
+    "sourceUrl": "https://github.com/YunSangYeong/Craftsman-Aesthetician-CBT/blob/feat/skin-cbt-standard-20261026/docs/question-review.md",
+    "verificationStatus": "pending",
+    "reviewNote": "등록 양식 예시. 출처·권리·정답을 확인한 후 로컬 승인.",
+    "version": "main",
+    "rights": "자체 제작 학습 문항 · CC BY 4.0 · Craftsman-Aesthetician-CBT contributors"
+  }
+]
