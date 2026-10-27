@@ -1,0 +1,45 @@
+{
+  "totalRegistered": 1000,
+  "internallyReviewed": 1000,
+  "target": 1000,
+  "shortfall": 0,
+  "past": 0,
+  "reconstructed": 0,
+  "original": 1000,
+  "conceptQuestions": 400,
+  "numericConditionVariants": 600,
+  "numericApplicationFamilies": 10,
+  "variantsPerFamily": 60,
+  "independentExpertReviewed": 0,
+  "officialSyllabusComparison": "pending",
+  "reviewScope": "AI 자체 작성 후 내부 문장·정답·보기 대조 및 수치 전수 독립 계산. 외부 전문가 검수 아님.",
+  "subjects": {
+    "피부미용학": 200,
+    "피부학 및 해부생리학": 200,
+    "피부미용기기학": 200,
+    "화장품학": 200,
+    "공중위생관리학": 200
+  },
+  "families": {
+    "SKIN-CALC-packRatio": 60,
+    "SKIN-CALC-arealDose": 60,
+    "SKIN-CALC-cardiacOutput": 60,
+    "SKIN-CALC-minuteVentilation": 60,
+    "SKIN-CALC-wavePeriod": 60,
+    "SKIN-CALC-deviceEnergy": 60,
+    "SKIN-CALC-massPercent": 60,
+    "SKIN-CALC-volumeDilution": 60,
+    "SKIN-CALC-countReduction": 60,
+    "SKIN-CALC-cumulativeIncidence": 60
+  },
+  "answerPositions": {
+    "1": 250,
+    "4": 250,
+    "3": 250,
+    "2": 250
+  },
+  "exactIdDuplicates": 0,
+  "sourceYearsAndSessions": "all null; no fabricated exam provenance",
+  "preservedOriginalIds": "SKIN-0001 through SKIN-0100; all original fields unchanged",
+  "bankSha256": "bcbf416d7efff8644ff05ff2680d02ed539237b85a57c1d085fabd605d9eb0b9"
+}

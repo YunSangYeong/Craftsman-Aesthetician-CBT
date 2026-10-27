@@ -1,0 +1,2 @@
+id,subject,topic,question,answer,explanation,difficulty,year,session,type,sourceUrl,verificationStatus,reviewNote,version,rights,choice1,choice2,choice3,choice4
+LOCAL-SKIN-EXAMPLE,피부미용학,고객상담,[직접 작성할 질문],1,알레르기·민감 반응과 현재 피부 상태는 제품과 관리 방법의 안전한 선택에 직접 영향을 준다. 상담 내용은 필요한 범위에서 기록한다.,하,,,original,https://github.com/YunSangYeong/Craftsman-Aesthetician-CBT/blob/feat/skin-cbt-standard-20261026/docs/question-review.md,pending,등록 양식 예시. 출처·권리·정답을 확인한 후 로컬 승인.,main,자체 제작 학습 문항 · CC BY 4.0 · Craftsman-Aesthetician-CBT contributors,알레르기와 현재 피부 상태,고객의 휴대전화 기종,고객의 신발 크기,고객의 선호 음악만

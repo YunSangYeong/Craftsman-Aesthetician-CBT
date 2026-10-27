@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "standardVersion": "1.4.0",
+  "standardCommit": "76b990b8720adfa85c22a0a8f699b17094aa357b",
+  "appReferenceCommit": "b9a682ccff1b460334b78d5bfad9375b7ec4fbb6",
+  "name": "미용사(피부)",
+  "slug": "skin-cbt",
+  "bankId": "main",
+  "subjects": [
+    "피부미용학",
+    "피부학 및 해부생리학",
+    "피부미용기기학",
+    "화장품학",
+    "공중위생관리학"
+  ],
+  "exam": {
+    "questionCount": 60,
+    "durationMinutes": 60,
+    "choiceCount": 4,
+    "maxScore": 100,
+    "passScore": 60,
+    "hasSubjectCutoff": false,
+    "selectionPolicy": "검수 완료 전체 풀에서 60개 추출. 과목별 고정 수 없음. 공식 분포 재현 아님.",
+    "unansweredPolicy": "오답으로 처리"
+  },
+  "rulesVerification": {
+    "status": "pending",
+    "officialSourceAttempted": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7974",
+    "result": "CONNECT tunnel failed, response 403; HTTP 000. 공식 문서 본문 미열람.",
+    "assumptions": "시험 수치와 5개 학습 영역은 일반 지식 기반 잠정 학습 설정. 현행 공식 과목 명칭·범위·배점·과락·시간·문항 수는 별도 대조 필요.",
+    "reviewDate": "2026-10-26"
+  },
+  "bankTarget": 1000,
+  "storageNamespace": "craftsman-aesthetician-cbt:v1",
+  "deployment": {
+    "repository": "YunSangYeong/Craftsman-Aesthetician-CBT",
+    "base": "/Craftsman-Aesthetician-CBT/",
+    "url": "https://YunSangYeong.github.io/Craftsman-Aesthetician-CBT/"
+  }
+}
